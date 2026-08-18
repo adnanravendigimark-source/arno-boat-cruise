@@ -63,12 +63,12 @@ export default function AdminShell({
               component's wordmark needs more width than 256px leaves room
               for and was overflowing the column. */}
           <div className="flex items-center gap-2.5 border-b border-white/10 px-5 py-5">
-            {/* No boxed/ring badge here anymore — the boat artwork is a
-                wide, flat silhouette rather than a square icon, so a small
-                ring-bordered square box was squashing it down to a sliver.
-                It reads better shown directly at its natural aspect ratio. */}
-            <span className="relative block h-7 w-20 shrink-0">
-              <Image src={logo} alt="Arno Boat Cruise logo" fill sizes="80px" className="object-contain" priority />
+            {/* No boxed/ring badge here — the bridge-and-boat artwork is a
+                wide, flat illustration rather than a square icon. Sized to
+                its actual ~1.79:1 aspect ratio so it reads cleanly at a
+                small size instead of pillarboxing inside a mismatched box. */}
+            <span className="relative block h-8 w-14 shrink-0">
+              <Image src={logo} alt="Arno Boat Cruise logo" fill sizes="56px" className="object-contain" priority />
             </span>
             <div className="min-w-0">
               <p className="truncate font-display text-sm font-semibold italic text-white">{brandName}</p>
