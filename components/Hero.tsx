@@ -20,6 +20,11 @@ export default async function Hero() {
     : tours;
   const previewTours = orderedTours.slice(0, 4);
   const avatarSrcs = content.heroGallery.slice(0, 3).map((g) => g.src).filter(Boolean);
+  // Literal class names (not a template string) so Tailwind's static scan
+  // picks them up — avoids an empty trailing grid gap when there are fewer
+  // than 4 tours.
+  const previewGridColsClass =
+    { 1: "lg:grid-cols-1", 2: "lg:grid-cols-2", 3: "lg:grid-cols-3" }[previewTours.length] || "lg:grid-cols-4";
 
   return (
     <section id="top" className="relative overflow-hidden bg-stone-950 text-white">
@@ -31,7 +36,7 @@ export default async function Hero() {
             {content.heroBadge}
           </div>
 
-          <h1 className="mt-5 max-w-xl font-display text-[1.85rem] font-bold leading-[1.12] tracking-tight sm:text-4xl lg:text-[2.1rem] xl:text-4xl">
+          <h1 className="mt-4 max-w-2xl font-display text-[1.6rem] font-bold leading-[1.14] tracking-tight sm:text-[1.9rem] lg:text-[1.85rem] xl:text-[2.1rem]">
             {content.heroHeading}
           </h1>
 
@@ -122,8 +127,9 @@ export default async function Hero() {
           {/* Soft blend into the left panel */}
           <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-28 bg-gradient-to-r from-stone-950 to-transparent lg:block xl:w-36" />
 
-          {/* Floating rating card */}
-          <div className="absolute bottom-4 right-4 z-10 flex items-center gap-3 rounded-2xl border border-white/15 bg-stone-950/65 px-4 py-3 shadow-xl backdrop-blur-md sm:right-6">
+          {/* Floating rating card — kept clear of the popular-cruises card
+              that overlaps up from below (see the -mt on that card) */}
+          <div className="absolute bottom-10 right-4 z-10 flex items-center gap-3 rounded-2xl border border-white/15 bg-stone-950/65 px-4 py-3 shadow-xl backdrop-blur-md sm:bottom-11 sm:right-6">
             {avatarSrcs.length > 0 && (
               <div className="flex -space-x-2.5">
                 {avatarSrcs.map((src, i) => (
@@ -144,7 +150,7 @@ export default async function Hero() {
 
       {/* Floating "popular cruises" preview card — overlaps the hero's bottom edge */}
       {previewTours.length > 0 && (
-        <div className="relative z-20 mx-auto -mt-9 max-w-6xl px-4 pb-6 sm:px-6 sm:pb-7 lg:-mt-12">
+        <div className="relative z-20 mx-auto -mt-4 max-w-6xl px-4 pb-6 sm:px-6 sm:pb-7 lg:-mt-5">
           <div className="rounded-3xl border border-stone-200/60 bg-white p-5 shadow-2xl shadow-black/20 sm:p-6">
             <div className="flex flex-wrap items-end justify-between gap-3">
               <div>
@@ -163,7 +169,7 @@ export default async function Hero() {
               </a>
             </div>
 
-            <div className="mt-5 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            <div className={`mt-5 grid grid-cols-2 gap-4 ${previewGridColsClass}`}>
               {previewTours.map((tour) => (
                 <a
                   key={tour.id}
