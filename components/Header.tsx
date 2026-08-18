@@ -13,7 +13,7 @@ export default async function Header() {
             <Link
               key={link.href + link.label}
               href={link.href}
-              className="relative py-1 hover:text-orange-600 transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-orange-600 after:transition-all hover:after:w-full"
+              className="relative py-1 hover:text-forest-600 transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-forest-600 after:transition-all hover:after:w-full"
             >
               {link.label}
             </Link>
@@ -21,7 +21,7 @@ export default async function Header() {
         </nav>
         <Link
           href={header.ctaHref}
-          className="rounded-xl bg-gradient-to-r from-orange-600 via-amber-600 to-rose-600 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-orange-600/20 transition-all duration-200 hover:shadow-lg hover:shadow-orange-600/30 hover:scale-[1.02]"
+          className="rounded-xl bg-gradient-to-r from-forest-600 via-sage-600 to-forest-800 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-forest-600/20 transition-all duration-200 hover:shadow-lg hover:shadow-forest-600/30 hover:scale-[1.02]"
         >
           {header.ctaText}
         </Link>

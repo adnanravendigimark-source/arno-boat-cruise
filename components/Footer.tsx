@@ -19,7 +19,7 @@ export default async function Footer() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-7">
             {footer.columns.map((column) => (
               <div key={column.title}>
-                <p className="text-xs font-bold uppercase tracking-widest text-sky-400">
+                <p className="text-xs font-bold uppercase tracking-widest text-sage-400">
                   {column.title}
                 </p>
                 <ul className="mt-4 space-y-2.5 text-sm text-stone-300">
@@ -35,7 +35,7 @@ export default async function Footer() {
             ))}
 
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-sky-400">
+              <p className="text-xs font-bold uppercase tracking-widest text-sage-400">
                 {footer.addressHeading}
               </p>
               <p className="mt-4 text-sm leading-relaxed text-stone-300">

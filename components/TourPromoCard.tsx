@@ -12,12 +12,12 @@ export default function TourPromoCard({
   bookNowText?: string;
 }) {
   return (
-    <div className="my-10 flex flex-col gap-6 overflow-hidden rounded-2xl border border-amber-200/80 bg-gradient-to-br from-amber-50/70 via-white to-orange-50/40 p-6 shadow-md sm:flex-row sm:items-center">
+    <div className="my-10 flex flex-col gap-6 overflow-hidden rounded-2xl border border-sage-200/80 bg-gradient-to-br from-sage-50/70 via-white to-forest-50/40 p-6 shadow-md sm:flex-row sm:items-center">
       <div className="relative h-44 w-full shrink-0 overflow-hidden rounded-xl sm:h-32 sm:w-44 shadow-sm">
         <SafeImage src={tour.image} alt={tour.imageAlt} fill sizes="200px" className="object-cover" />
       </div>
       <div className="flex-1">
-        <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-orange-600">
+        <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-forest-600">
           {recommendedLabel}
         </span>
         <p className="mt-1 font-display text-lg font-bold text-stone-900">{tour.title}</p>
@@ -31,7 +31,7 @@ export default function TourPromoCard({
         href={tour.href}
         target="_blank"
         rel="noopener nofollow sponsored"
-        className="shrink-0 rounded-xl bg-gradient-to-r from-orange-600 via-amber-600 to-rose-600 px-6 py-3 text-center text-sm font-bold text-white shadow-md shadow-orange-600/20 transition hover:scale-[1.02] hover:shadow-orange-600/35"
+        className="shrink-0 rounded-xl bg-gradient-to-r from-forest-600 via-sage-600 to-forest-800 px-6 py-3 text-center text-sm font-bold text-white shadow-md shadow-forest-600/20 transition hover:scale-[1.02] hover:shadow-forest-600/35"
       >
         {bookNowText}
       </a>

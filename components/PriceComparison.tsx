@@ -7,7 +7,7 @@ export default async function PriceComparison() {
   return (
     <section id="prices" className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
       <div className="max-w-3xl">
-        <span className="inline-block text-xs font-bold uppercase tracking-widest text-orange-600">
+        <span className="inline-block text-xs font-bold uppercase tracking-widest text-forest-600">
           {s.eyebrow}
         </span>
         <h2 className="mt-2 font-display text-3xl font-bold text-stone-900 sm:text-4xl">{s.heading}</h2>
@@ -33,12 +33,12 @@ export default async function PriceComparison() {
             {tours.map((tour, i) => (
               <tr
                 key={tour.id}
-                className={`transition hover:bg-orange-50/40 ${
-                  tour.ribbon === "Bestseller" ? "bg-orange-50/60 font-medium" : i % 2 ? "bg-stone-50/60" : ""
+                className={`transition hover:bg-forest-50/40 ${
+                  tour.ribbon === "Bestseller" ? "bg-forest-50/60 font-medium" : i % 2 ? "bg-stone-50/60" : ""
                 }`}
               >
                 <td className="px-6 py-4 font-semibold text-stone-900">{tour.title}</td>
-                <td className="px-6 py-4 font-bold text-orange-600">
+                <td className="px-6 py-4 font-bold text-forest-600">
                   €{tour.price} <span className="font-normal text-xs text-stone-400">/ person</span>
                 </td>
                 <td className="px-6 py-4 text-stone-600">{tour.priceTableColumn1 || tour.duration}</td>
@@ -49,7 +49,7 @@ export default async function PriceComparison() {
                     href={tour.href}
                     target="_blank"
                     rel="noopener nofollow sponsored"
-                    className="inline-flex rounded-xl bg-gradient-to-r from-orange-600 via-amber-600 to-rose-600 px-4 py-2 text-xs font-bold text-white shadow-sm transition hover:scale-[1.02]"
+                    className="inline-flex rounded-xl bg-gradient-to-r from-forest-600 via-sage-600 to-forest-800 px-4 py-2 text-xs font-bold text-white shadow-sm transition hover:scale-[1.02]"
                   >
                     {s.bookLabel}
                   </a>

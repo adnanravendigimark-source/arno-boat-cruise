@@ -49,7 +49,7 @@ export function generateMetadata(): Metadata {
       template: "%s | Arno Boat Cruise Florence",
     },
     description:
-      "Book top-rated Florence Arno River boat cruises. Compare traditional wooden barchetto rides, romantic sunset aperitivo cruises with Tuscan wine, and Uffizi combos.",
+      "Compare top-rated Arno River boat cruises in Florence — traditional barchetto rides beneath Ponte Vecchio, sunset aperitivo cruises with Tuscan wine, and Uffizi combos. Free cancellation.",
     keywords: [
       "Arno boat cruise",
       "Arno River cruise",
@@ -71,6 +71,12 @@ export function generateMetadata(): Metadata {
       "Arno River cruise with drinks",
       "Things to do in Florence Italy",
       "best views of Florence from the Arno River",
+      "Ponte Vecchio boat cruise",
+      "barchetto boat tour Florence",
+      "Florence gondola-style boat tour",
+      "Uffizi Gallery boat tour combo",
+      "Florence sunset boat tour",
+      "traditional Florentine boat tour",
     ],
     alternates: {
       canonical: "/",
@@ -100,7 +106,7 @@ function buildThemeStyle(theme: { primary: string; secondary: string; dark: stri
     ["--color-canal-primary", hexToRgbTriplet(theme.primary)],
     ["--color-canal-blue", hexToRgbTriplet(theme.secondary)],
     ["--color-canal-ink", hexToRgbTriplet(theme.dark)],
-    ["--color-gold-400", hexToRgbTriplet(theme.accent)],
+    ["--color-sage-400", hexToRgbTriplet(theme.accent)],
   ];
   const declarations = vars
     .filter(([, value]) => value !== null)
@@ -132,7 +138,7 @@ export default async function RootLayout({
           `}
         </Script>
       </head>
-      <body className="font-body bg-stone-50 text-stone-900 antialiased selection:bg-orange-600 selection:text-white">
+      <body className="font-body bg-stone-50 text-stone-900 antialiased selection:bg-forest-600 selection:text-white">
         {themeStyle && <style dangerouslySetInnerHTML={{ __html: themeStyle }} />}
         {children}
         <script

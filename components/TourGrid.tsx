@@ -17,7 +17,7 @@ export default async function TourGrid() {
   return (
     <section id="tours" className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
       <div className="max-w-3xl">
-        <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600">
+        <span className="inline-block text-xs font-bold uppercase tracking-widest text-forest-600">
           {content.sections.tours.eyebrow}
         </span>
         <h2 className="mt-2 font-display text-3xl font-bold text-slate-900 sm:text-4xl">

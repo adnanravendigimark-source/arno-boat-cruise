@@ -7,7 +7,7 @@ export default async function CanalHighlights() {
   return (
     <section id="highlights" className="bg-stone-900 py-16 text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <span className="text-xs font-semibold uppercase tracking-wider text-amber-400">
+        <span className="text-xs font-semibold uppercase tracking-wider text-sage-400">
           {s.eyebrow}
         </span>
         <h2 className="mt-2 font-display text-3xl font-bold">{s.heading}</h2>
@@ -17,7 +17,7 @@ export default async function CanalHighlights() {
           {s.cards.map((item) => (
             <div
               key={item.title}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition hover:border-orange-500/40 hover:bg-white/10"
+              className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition hover:border-forest-500/40 hover:bg-white/10"
             >
               <span className="text-3xl">{item.icon}</span>
               <h3 className="mt-4 font-display text-lg font-semibold">{item.title}</h3>

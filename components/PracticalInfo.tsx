@@ -35,7 +35,7 @@ export default async function PracticalInfo() {
         </div>
 
         <div className="rounded-2xl border border-stone-200/80 bg-white p-6 shadow-sm">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400/20 text-amber-600 font-bold text-lg mb-4">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sage-400/20 text-sage-600 font-bold text-lg mb-4">
             💡
           </div>
           <h3 className="font-display text-xl font-bold text-stone-900">{s.bestTimeHeading}</h3>

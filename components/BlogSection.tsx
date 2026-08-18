@@ -15,7 +15,7 @@ export default async function BlogSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-orange-600">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-forest-600">
               {s.eyebrow}
             </p>
             <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-stone-900 sm:text-4xl">
@@ -25,7 +25,7 @@ export default async function BlogSection() {
           </div>
           <Link
             href="/blog"
-            className="inline-flex items-center justify-center gap-2 self-start md:self-auto rounded-full border-2 border-orange-600 bg-white px-6 py-2.5 text-sm font-bold text-orange-600 transition hover:bg-orange-600 hover:text-white shadow-sm hover:shadow-md"
+            className="inline-flex items-center justify-center gap-2 self-start md:self-auto rounded-full border-2 border-forest-600 bg-white px-6 py-2.5 text-sm font-bold text-forest-600 transition hover:bg-forest-600 hover:text-white shadow-sm hover:shadow-md"
           >
             <span>{s.viewAllText}</span>
             <span aria-hidden="true">→</span>
@@ -49,12 +49,12 @@ export default async function BlogSection() {
               </Link>
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-center gap-3 text-xs">
-                  <span className="inline-flex rounded-full bg-orange-50 px-2.5 py-0.5 font-bold uppercase tracking-wide text-orange-700">
+                  <span className="inline-flex rounded-full bg-forest-50 px-2.5 py-0.5 font-bold uppercase tracking-wide text-forest-700">
                     {post.category}
                   </span>
                   {post.readTime && <span className="text-stone-400 font-medium">{post.readTime}</span>}
                 </div>
-                <h3 className="mt-3 font-display text-xl font-bold leading-snug text-stone-900 group-hover:text-orange-600 transition-colors">
+                <h3 className="mt-3 font-display text-xl font-bold leading-snug text-stone-900 group-hover:text-forest-600 transition-colors">
                   <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h3>
                 {post.excerpt && (
@@ -63,7 +63,7 @@ export default async function BlogSection() {
                 <div className="mt-auto pt-6">
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-bold text-orange-600 transition group-hover:text-orange-700 group-hover:gap-2"
+                    className="inline-flex items-center gap-1.5 text-sm font-bold text-forest-600 transition group-hover:text-forest-700 group-hover:gap-2"
                   >
                     <span>{s.readArticleText}</span>
                     <span aria-hidden="true">→</span>
@@ -77,7 +77,7 @@ export default async function BlogSection() {
         <div className="mt-10 text-center md:hidden">
           <Link
             href="/blog"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-600 to-amber-600 px-6 py-3 text-sm font-bold text-white transition shadow-sm"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-forest-600 to-sage-600 px-6 py-3 text-sm font-bold text-white transition shadow-sm"
           >
             <span>{s.viewAllText}</span>
             <span aria-hidden="true">→</span>

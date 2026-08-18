@@ -23,7 +23,7 @@ export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
                     {item.name}
                   </span>
                 ) : (
-                  <Link href={item.path} className="hover:text-orange-600 transition-colors">
+                  <Link href={item.path} className="hover:text-forest-600 transition-colors">
                     {item.name}
                   </Link>
                 )}

@@ -25,15 +25,15 @@ export default function Logo({
   if (variant === "stacked") {
     return (
       <Link href="/" className={`inline-flex flex-col items-center gap-3 ${className}`}>
-        {/* Sized to the bridge-and-boat artwork's actual ~1.79:1 aspect
+        {/* Sized to the bridge-and-boat artwork's actual ~1.34:1 aspect
             ratio so it fills its box edge-to-edge instead of leaving empty
             pillarbox space on either side. */}
-        <span className="relative block h-20 w-[143px] sm:h-24 sm:w-[172px] transition-transform duration-300 hover:scale-105">
+        <span className="relative block h-20 w-[107px] sm:h-24 sm:w-[129px] transition-transform duration-300 hover:scale-105">
           <Image
             src={customSrc || logoImg}
             alt={alt}
             fill
-            sizes="172px"
+            sizes="129px"
             className="object-contain"
             priority
           />
@@ -46,7 +46,7 @@ export default function Logo({
           >
             {line1}
           </span>
-          <span className="block font-display text-sm font-extrabold uppercase tracking-[0.32em] bg-gradient-to-r from-teal-500 via-blue-600 to-indigo-700 bg-clip-text text-transparent">
+          <span className="block font-display text-sm font-extrabold uppercase tracking-[0.32em] bg-gradient-to-r from-forest-600 via-sage-500 to-forest-800 bg-clip-text text-transparent">
             {line2}
           </span>
           <span className="block text-xs font-medium tracking-[0.25em] uppercase text-stone-400 mt-0.5">
@@ -58,13 +58,13 @@ export default function Logo({
   }
 
   const emblem = (
-    <span className="relative block h-11 w-[79px] sm:h-12 sm:w-[86px] shrink-0 overflow-hidden transition-transform duration-300 group-hover:scale-105">
+    <span className="relative block h-11 w-[59px] sm:h-12 sm:w-[64px] shrink-0 overflow-hidden transition-transform duration-300 group-hover:scale-105">
       <Image
         src={customSrc || logoImg}
         alt={alt}
         fill
         priority
-        sizes="86px"
+        sizes="64px"
         className="object-contain"
       />
     </span>
@@ -81,7 +81,7 @@ export default function Logo({
           {line1}
         </span>
       </div>
-      <span className="block whitespace-nowrap font-display text-[13px] font-extrabold uppercase tracking-[0.26em] bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent">
+      <span className="block whitespace-nowrap font-display text-[13px] font-extrabold uppercase tracking-[0.26em] bg-gradient-to-r from-forest-600 via-sage-500 to-forest-800 bg-clip-text text-transparent">
         {line2}
       </span>
     </div>

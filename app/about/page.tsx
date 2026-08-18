@@ -51,7 +51,7 @@ export default async function AboutPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-canal-navy via-canal-navy/80 to-canal-navy/40" />
           </div>
           <div className="relative mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-28">
-            <span className="inline-block rounded-full bg-sky-500/20 border border-sky-400/30 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-sky-200 backdrop-blur-md">
+            <span className="inline-block rounded-full bg-sage-500/20 border border-sage-400/30 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-sage-200 backdrop-blur-md">
               {about.heroEyebrow}
             </span>
             <h1 className="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">
@@ -67,7 +67,7 @@ export default async function AboutPage() {
         {/* What we do — text + image */}
         <section className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600">Our Mission</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-forest-600">Our Mission</span>
             <h2 className="mt-2 font-display text-3xl font-bold text-slate-900">{about.introHeading}</h2>
             <div className="rich-content mt-4 text-slate-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: about.introParagraph1 }} />
             <div className="rich-content mt-4 text-slate-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: about.introParagraph2 }} />
@@ -87,7 +87,7 @@ export default async function AboutPage() {
         <section className="bg-slate-50 py-20 border-y border-slate-200/80">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="max-w-2xl">
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-600">Why Book With Us</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-forest-600">Why Book With Us</span>
               <h2 className="mt-2 font-display text-3xl font-bold text-slate-900">{about.reasonsHeading}</h2>
               <div
                 className="rich-content mt-3 text-slate-600"
@@ -98,8 +98,8 @@ export default async function AboutPage() {
               {about.reasons.map(({ icon, title, body }) => {
                 const Icon = getIconComponent(icon);
                 return (
-                  <div key={title} className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition hover:shadow-md hover:border-blue-400/40">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                  <div key={title} className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition hover:shadow-md hover:border-forest-400/40">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-forest-50 text-forest-600">
                       <Icon className="h-6 w-6" />
                     </span>
                     <p className="mt-4 text-base font-bold text-slate-900">{title}</p>
@@ -125,18 +125,18 @@ export default async function AboutPage() {
           <div className="mt-12 flex flex-col items-start gap-4 rounded-2xl bg-gradient-to-r from-canal-navy to-slate-900 p-8 text-white shadow-xl sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-lg font-bold">{about.ctaText}</p>
-              <p className="text-xs text-sky-200 mt-0.5">Instant confirmation &amp; mobile tickets</p>
+              <p className="text-xs text-sage-100 mt-0.5">Instant confirmation &amp; mobile tickets</p>
             </div>
             <a
               href="/#tours"
-              className="shrink-0 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-600 px-7 py-3 text-sm font-bold text-white shadow-md transition hover:scale-[1.02]"
+              className="shrink-0 rounded-xl bg-gradient-to-r from-forest-600 via-sage-600 to-forest-800 px-7 py-3 text-sm font-bold text-white shadow-md transition hover:scale-[1.02]"
             >
               {about.ctaButtonLabel} →
             </a>
           </div>
 
           <div
-            className="rich-content mt-8 text-sm text-slate-500 [&_a]:font-bold [&_a]:text-blue-600 [&_a]:underline"
+            className="rich-content mt-8 text-sm text-slate-500 [&_a]:font-bold [&_a]:text-forest-600 [&_a]:underline"
             dangerouslySetInnerHTML={{ __html: about.contactPromptHtml }}
           />
         </section>

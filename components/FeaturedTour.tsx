@@ -32,7 +32,7 @@ export default async function FeaturedTour() {
           href={tour.href}
           target="_blank"
           rel="noopener nofollow sponsored"
-          className="shrink-0 rounded-xl bg-gradient-to-r from-orange-600 to-amber-600 px-4 py-2 text-xs font-bold text-white shadow-md shadow-orange-500/20"
+          className="shrink-0 rounded-xl bg-gradient-to-r from-forest-600 to-sage-600 px-4 py-2 text-xs font-bold text-white shadow-md shadow-forest-500/20"
         >
           {bookNowText}
         </a>

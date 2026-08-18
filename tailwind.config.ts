@@ -13,55 +13,49 @@ const config: Config = {
           100: "#f5f0eb",
           900: "#181411",
         },
-        gold: {
-          400: "rgb(var(--color-gold-400) / <alpha-value>)",
-          500: "#14b8a6",
-          600: "#0d9488",
+        // "Ivory & Forest" brand palette — deep forest green as the primary
+        // (buttons, links, badges, matches the new logo's "A" monogram)
+        // paired with a muted sage/olive secondary accent (matches the
+        // logo's skyline art and "BOAT CRUISE" wordmark).
+        forest: {
+          50: "#f0f4ee",
+          100: "#dbe6d5",
+          200: "#b8cead",
+          300: "#8fac7d",
+          400: "#6a8c56",
+          500: "#4c6f3c",
+          600: "#395a2b",
+          700: "#2c4622",
+          800: "#24371f",
+          900: "#1c2b18",
+          950: "#101a0e",
         },
-        // Arno Navy & Teal branding (replaces the earlier Tuscan
-        // terracotta/amber palette to match the navy boat/bridge logo art)
+        // Sage / olive — secondary accent. The 400 shade is driven by the
+        // admin-editable theme.accent value (see DEFAULT_THEME in
+        // lib/homepage.ts); the rest of the ramp is a static sage scale.
+        sage: {
+          50: "#f6f7f1",
+          100: "#e9ecdf",
+          200: "#d1d8bd",
+          300: "#b3bd94",
+          400: "rgb(var(--color-sage-400) / <alpha-value>)",
+          500: "#889068",
+          600: "#707858",
+          700: "#5a6146",
+          800: "#474c38",
+          900: "#383c2c",
+          950: "#22251a",
+        },
+        // Admin-editable brand accent tokens (driven by CSS vars set from
+        // theme.primary/secondary/dark in lib/homepage.ts DEFAULT_THEME) —
+        // forest-green primary paired with a sage secondary, used
+        // sparingly for icons/dark sections.
         canal: {
           blue: "rgb(var(--color-canal-blue) / <alpha-value>)",
           primary: "rgb(var(--color-canal-primary) / <alpha-value>)",
           orange: "rgb(var(--color-canal-primary) / <alpha-value>)",
           ink: "rgb(var(--color-canal-ink) / <alpha-value>)",
           navy: "#181411",
-          azure: "#0d9488",
-          royal: "#1d4ed8",
-          sapphire: "#172554",
-        },
-        arno: {
-          terracotta: "#1d4ed8",
-          amber: "#0d9488",
-          river: "#0d9488",
-          night: "#181411",
-        },
-        // Full palette overrides — every amber/orange/rose shade actually
-        // used across the site now resolves to teal/blue/indigo instead,
-        // so no component className strings needed touching individually.
-        amber: {
-          50: "#f0fdfa",
-          200: "#99f6e4",
-          300: "#5eead4",
-          400: "#2dd4bf",
-          500: "#14b8a6",
-          600: "#0d9488",
-          700: "#0f766e",
-          800: "#115e59",
-          900: "#134e4a",
-        },
-        orange: {
-          50: "#eff6ff",
-          100: "#dbeafe",
-          200: "#bfdbfe",
-          400: "#60a5fa",
-          500: "#3b82f6",
-          600: "#2563eb",
-          700: "#1d4ed8",
-          950: "#172554",
-        },
-        rose: {
-          600: "#4f46e5",
         },
       },
       fontFamily: {
@@ -70,12 +64,12 @@ const config: Config = {
       },
       backgroundImage: {
         mosaic:
-          "radial-gradient(circle at 15% 25%, rgba(29,78,216,0.25) 0, transparent 45%), radial-gradient(circle at 85% 15%, rgba(13,148,136,0.22) 0, transparent 45%), radial-gradient(circle at 50% 85%, rgba(24,20,17,0.45) 0, transparent 50%)",
+          "radial-gradient(circle at 15% 25%, rgba(36,55,31,0.25) 0, transparent 45%), radial-gradient(circle at 85% 15%, rgba(112,120,88,0.22) 0, transparent 45%), radial-gradient(circle at 50% 85%, rgba(24,20,17,0.45) 0, transparent 50%)",
       },
       boxShadow: {
-        glow: "0 0 35px -5px rgba(29, 78, 216, 0.35)",
-        "blue-glow": "0 0 35px -5px rgba(13, 148, 136, 0.35)",
-        "amber-glow": "0 0 35px -5px rgba(20, 184, 166, 0.35)",
+        glow: "0 0 35px -5px rgba(36, 55, 31, 0.35)",
+        "blue-glow": "0 0 35px -5px rgba(31, 100, 89, 0.35)",
+        "amber-glow": "0 0 35px -5px rgba(112, 120, 88, 0.35)",
       },
     },
   },

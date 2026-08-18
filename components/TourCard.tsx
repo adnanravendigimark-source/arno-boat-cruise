@@ -20,8 +20,8 @@ export default function TourCard({
     <div
       className={`group flex h-full flex-col overflow-hidden rounded-2xl bg-white transition-all duration-300 hover:-translate-y-1 ${
         recommended
-          ? "border-2 border-orange-600 shadow-lg shadow-orange-500/10 hover:shadow-2xl hover:shadow-orange-500/20 ring-1 ring-orange-500/20"
-          : "border border-stone-200/80 shadow-sm hover:border-orange-500/40 hover:shadow-xl hover:shadow-orange-950/5"
+          ? "border-2 border-forest-600 shadow-lg shadow-forest-500/10 hover:shadow-2xl hover:shadow-forest-500/20 ring-1 ring-forest-500/20"
+          : "border border-stone-200/80 shadow-sm hover:border-forest-500/40 hover:shadow-xl hover:shadow-forest-950/5"
       }`}
     >
       {/* Image */}
@@ -36,7 +36,7 @@ export default function TourCard({
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10" />
 
         {(recommended || tour.ribbon) && (
-          <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-lg bg-gradient-to-r from-orange-600 via-amber-600 to-rose-600 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md">
+          <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-lg bg-gradient-to-r from-forest-600 via-sage-600 to-forest-800 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md">
             <span>★</span>
             {recommended ? recommended.badgeLabel : tour.ribbon}
           </span>
@@ -49,7 +49,7 @@ export default function TourCard({
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <h3 className="min-h-[3.25rem] font-display text-lg font-bold leading-snug text-stone-900 line-clamp-2 group-hover:text-orange-600 transition-colors">
+        <h3 className="min-h-[3.25rem] font-display text-lg font-bold leading-snug text-stone-900 line-clamp-2 group-hover:text-forest-600 transition-colors">
           {tour.title}
         </h3>
         <div
@@ -61,9 +61,9 @@ export default function TourCard({
           {tour.includes.map((item) => (
             <span
               key={item}
-              className="inline-flex items-center gap-1 rounded-md bg-amber-50 px-2.5 py-1 text-[11px] font-semibold text-amber-900 border border-amber-200/60"
+              className="inline-flex items-center gap-1 rounded-md bg-sage-50 px-2.5 py-1 text-[11px] font-semibold text-sage-900 border border-sage-200/60"
             >
-              <span className="text-orange-600 font-bold">✓</span>
+              <span className="text-forest-600 font-bold">✓</span>
               {item}
             </span>
           ))}
@@ -72,10 +72,10 @@ export default function TourCard({
         <p className="mt-3 text-xs font-medium text-stone-500">⏱ {tour.duration}</p>
 
         {recommended && recommended.reasons.length > 0 && (
-          <div className="mt-3.5 rounded-xl bg-orange-50/70 border border-orange-200/60 p-3">
+          <div className="mt-3.5 rounded-xl bg-forest-50/70 border border-forest-200/60 p-3">
             {recommended.reasons.slice(0, 2).map((reason) => (
               <p key={reason} className="flex items-start gap-1.5 text-[11px] leading-snug text-stone-700 font-semibold">
-                <span className="mt-0.5 text-orange-600">✓</span>
+                <span className="mt-0.5 text-forest-600">✓</span>
                 {reason}
               </p>
             ))}
@@ -84,7 +84,7 @@ export default function TourCard({
 
         {/* Footer */}
         {recommended ? (
-          <div className="mt-auto border-t border-orange-100 pt-4">
+          <div className="mt-auto border-t border-forest-100 pt-4">
             <div className="flex items-end justify-between gap-2">
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-wider text-stone-400">from</p>
@@ -94,13 +94,13 @@ export default function TourCard({
                 href={tour.href}
                 target="_blank"
                 rel="noopener nofollow sponsored"
-                className="flex shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-r from-orange-600 via-amber-600 to-rose-600 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-orange-600/25 transition hover:scale-[1.02] hover:shadow-orange-600/40"
+                className="flex shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-r from-forest-600 via-sage-600 to-forest-800 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-forest-600/25 transition hover:scale-[1.02] hover:shadow-forest-600/40"
               >
                 {bookNowText}
               </a>
             </div>
             {recommended.urgencyText && (
-              <p className="mt-2.5 flex items-center gap-1 text-[11px] font-semibold text-orange-600">
+              <p className="mt-2.5 flex items-center gap-1 text-[11px] font-semibold text-forest-600">
                 <LockIcon className="h-3 w-3" /> {recommended.urgencyText}
               </p>
             )}
@@ -121,7 +121,7 @@ export default function TourCard({
               href={tour.href}
               target="_blank"
               rel="noopener nofollow sponsored"
-              className="rounded-xl bg-gradient-to-r from-orange-600 via-amber-600 to-rose-600 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-orange-600/20 transition hover:scale-[1.02] hover:shadow-orange-600/30"
+              className="rounded-xl bg-gradient-to-r from-forest-600 via-sage-600 to-forest-800 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-forest-600/20 transition hover:scale-[1.02] hover:shadow-forest-600/30"
             >
               {bookNowText}
             </a>
