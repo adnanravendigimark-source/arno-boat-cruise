@@ -72,7 +72,7 @@ export default function AdminShell({
             </span>
             <div className="min-w-0">
               <p className="truncate font-display text-sm font-semibold italic text-white">{brandName}</p>
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-gold-400">Content Admin</p>
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-sage-400">Content Admin</p>
             </div>
           </div>
           <AdminSidebarNav isAdmin={isAdmin} pages={pages} />
@@ -113,7 +113,7 @@ export default function AdminShell({
                 <>
                   {sessionEmail}
                   <span
-                    className={`ml-1 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${isAdmin ? "bg-gold-500/15 text-gold-600" : "bg-stone-200 text-stone-600"
+                    className={`ml-1 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${isAdmin ? "bg-sage-500/15 text-sage-700" : "bg-stone-200 text-stone-600"
                       }`}
                   >
                     {sessionRole}

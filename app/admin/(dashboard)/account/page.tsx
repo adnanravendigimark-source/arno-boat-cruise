@@ -23,7 +23,7 @@ export default async function AdminAccountPage() {
             <span
               className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${
                 session?.role === "admin"
-                  ? "bg-gold-500/15 text-gold-600"
+                  ? "bg-sage-500/15 text-sage-700"
                   : "bg-stone-200 text-stone-600"
               }`}
             >

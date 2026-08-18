@@ -29,8 +29,8 @@ export default async function AdminUsersPage() {
         </div>
       </div>
 
-      <div className="mt-6 flex items-center gap-4 rounded-2xl border border-gold-500/30 bg-gold-500/5 p-4">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold-500 text-sm font-bold text-white">
+      <div className="mt-6 flex items-center gap-4 rounded-2xl border border-sage-500/30 bg-sage-500/5 p-4">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sage-500 text-sm font-bold text-white">
           {rootEmail.slice(0, 1).toUpperCase() || "A"}
         </span>
         <div className="min-w-0 flex-1">

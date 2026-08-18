@@ -106,7 +106,7 @@ export default function RichLinkModal({
             type="button"
             onClick={handleInsert}
             disabled={!url.trim()}
-            className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60"
+            className="rounded-lg bg-canal-blue px-4 py-2 text-sm font-semibold text-white transition hover:bg-canal-blue/90 disabled:opacity-60"
           >
             Insert link
           </button>

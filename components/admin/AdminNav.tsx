@@ -64,11 +64,11 @@ export function AdminSidebarNav({ isAdmin, pages }: { isAdmin: boolean; pages: P
             key={item.href}
             href={item.href}
             className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${active
-                ? "bg-gold-500/15 text-gold-400"
+                ? "bg-sage-500/15 text-sage-400"
                 : "text-white/65 hover:bg-white/5 hover:text-white"
               }`}
           >
-            <Icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-gold-400" : "text-white/40"}`} />
+            <Icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-sage-400" : "text-white/40"}`} />
             {item.label}
           </Link>
         );
@@ -90,7 +90,7 @@ export function AdminMobileNav({ isAdmin, pages }: { isAdmin: boolean; pages: Pa
             key={item.href}
             href={item.href}
             className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-              active ? "bg-blue-600 text-white" : "text-stone-900 hover:bg-stone-100"
+              active ? "bg-canal-primary text-white" : "text-stone-900 hover:bg-stone-100"
             }`}
           >
             <Icon className="h-3.5 w-3.5" />

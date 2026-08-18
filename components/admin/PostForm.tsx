@@ -482,7 +482,7 @@ export default function PostForm({
             <button
               type="submit"
               disabled={saving}
-              className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60"
+              className="rounded-lg bg-canal-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-canal-primary/90 disabled:opacity-60"
             >
               {saving ? "Saving…" : isNew ? "Publish Post" : "Save Changes"}
             </button>

@@ -57,8 +57,8 @@ export default async function AdminDashboardPage() {
           <p className="text-3xl font-bold text-stone-900">{posts.length}</p>
           <p className="text-sm text-stone-500">Blog posts published</p>
         </div>
-        <div className="rounded-2xl border border-gold-500/30 bg-gold-500/5 p-5">
-          <p className="flex items-center gap-1.5 text-sm font-semibold text-gold-600">
+        <div className="rounded-2xl border border-sage-500/30 bg-sage-500/5 p-5">
+          <p className="flex items-center gap-1.5 text-sm font-semibold text-sage-700">
             <StarBadgeIcon className="h-4 w-4" /> Recommended
           </p>
           <p className="mt-1 truncate text-sm text-stone-900">

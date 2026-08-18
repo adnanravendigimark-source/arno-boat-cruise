@@ -255,7 +255,7 @@ export default function CropModal({
             type="button"
             onClick={handleSave}
             disabled={!ready || saving}
-            className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60"
+            className="rounded-lg bg-canal-blue px-4 py-2 text-sm font-semibold text-white transition hover:bg-canal-blue/90 disabled:opacity-60"
           >
             {saving ? "Saving…" : "Save crop"}
           </button>

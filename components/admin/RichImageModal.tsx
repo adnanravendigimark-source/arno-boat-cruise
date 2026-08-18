@@ -115,7 +115,7 @@ export default function RichImageModal({
             {isEditing ? "Edit Image Details" : "Insert image"}
           </h3>
           {isEditing && (
-            <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-canal-blue">
+            <span className="rounded-full bg-canal-blue/10 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-canal-blue">
               Editing Image
             </span>
           )}
@@ -241,7 +241,7 @@ export default function RichImageModal({
               type="button"
               onClick={handleSave}
               disabled={!url || uploading}
-              className="rounded-lg bg-gradient-to-r from-blue-600 to-sky-600 px-4 py-2 text-sm font-bold text-white transition shadow-sm disabled:opacity-60"
+              className="rounded-lg bg-canal-blue px-4 py-2 text-sm font-bold text-white transition hover:bg-canal-blue/90 shadow-sm disabled:opacity-60"
             >
               {isEditing ? "Save changes" : "Insert image"}
             </button>
