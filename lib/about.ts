@@ -40,15 +40,15 @@ const DEFAULT_ABOUT: AboutPageContent = {
   heroHeading: "Your Independent Guide to Florence Arno River Cruise Tickets",
   heroSubheading:
     "We help travelers discover and book the finest Arno River sightseeing cruises, traditional barchetto aperitivo tours, and museum combo tickets in Florence — curated from licensed Italian operators.",
-  heroImage: "/images/gallery/barchetto-cruise.jpg",
-  heroImageAlt: "Traditional barchetto wooden boat gliding on the Arno River in Florence past Ponte Vecchio",
+  heroImage: "https://images.unsplash.com/photo-1601195576601-346d58e024c0?q=80&w=2400&auto=format&fit=crop",
+  heroImageAlt: "Aerial view of Ponte Vecchio and the Arno River winding through Florence, Italy",
   introHeading: "Why We Built an Arno River Cruise Guide",
   introParagraph1:
     "We created this guide because experiencing Florence from the calm waters of the Arno River offers an incomparable perspective of Renaissance history. Gliding beneath Ponte Vecchio, gazing up at the Vasari Corridor, and toasting with Tuscan wine away from bustling sidewalks is one of Italy's greatest travel pleasures.",
   introParagraph2:
     "We are an independent Florence travel resource — not a single boat operator. We independently review and compare traditional handcrafted barchetti, eco-friendly electric sightseeing boats, and skip-the-line museum combo packages from verified licensed operators, pointing you directly to the highest-rated experiences.",
-  introImage: "/images/gallery/golden-hour-cruise.jpg",
-  introImageAlt: "Sunset over the Arno River and Florence bridges",
+  introImage: "https://images.unsplash.com/photo-1666692871771-341bf6ac40dc?q=80&w=2400&auto=format&fit=crop",
+  introImageAlt: "Historic bridge over the Arno River in Firenze, Italy",
   reasonsHeading: "How We Curate Our Arno River Boat Tours",
   reasonsSubheading: "Every river cruise featured on our platform is evaluated against strict quality and authenticity standards.",
   reasons: [

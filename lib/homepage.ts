@@ -282,8 +282,8 @@ export const DEFAULT_GALLERY: GalleryImage[] = [
     label: "Uffizi Riverfront",
   },
   {
-    src: "/images/gallery/historic-bridges.jpg",
-    alt: "Ponte Santa Trinita and historic Renaissance palaces reflected in the Arno River",
+    src: "https://images.unsplash.com/photo-1759088253225-ec244aee0fde?q=80&w=2400&auto=format&fit=crop",
+    alt: "Ponte Vecchio bridge over the Arno River in Florence, Italy",
     label: "Historic Bridges",
   },
 ];
@@ -369,23 +369,23 @@ export const DEFAULT_SECTIONS: HomepageSections = {
     ctaHref: "#tours",
     images: [
       {
-        src: "/images/gallery/golden-hour-cruise.jpg",
-        alt: "Romantic sunset boat cruise on the Arno River in Florence with wine",
+        src: "/images/gallery/florence-hero-boat.jpg",
+        alt: "Friends toasting wine on a traditional boat at golden hour with Ponte Vecchio and the Duomo in view",
         label: "Sunset Aperitivo",
       },
       {
-        src: "/images/gallery/barchetto-cruise.jpg",
-        alt: "Traditional barchetto wooden boat gliding on the Arno past Ponte Vecchio",
+        src: "https://images.unsplash.com/photo-1666692871771-341bf6ac40dc?q=80&w=2400&auto=format&fit=crop",
+        alt: "Historic bridge over the Arno River in Firenze at dusk",
         label: "Traditional Barchetto",
       },
       {
-        src: "/images/gallery/evening-lights.jpg",
-        alt: "Illuminated bridges and Uffizi Gallery riverfront in Florence at night",
+        src: "https://images.unsplash.com/photo-1751302386326-7eb6ae7ad39a?q=80&w=2400&auto=format&fit=crop",
+        alt: "Visitor walking along Ponte Vecchio with the Arno River below in Florence",
         label: "Evening Lights",
       },
       {
-        src: "/images/gallery/historic-bridges.jpg",
-        alt: "Arno River bridges and Renaissance buildings in Florence",
+        src: "https://images.unsplash.com/photo-1651493635137-7b36b0fee9cb?q=80&w=2400&auto=format&fit=crop",
+        alt: "Ponte Vecchio arches over the Arno River in Florence, Italy",
         label: "Historic Arches",
       },
     ],
