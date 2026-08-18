@@ -71,24 +71,27 @@ export default function Logo({
   );
 
   const wordmark = (
-    <div className="flex flex-col leading-[1.1]">
+    <div className="flex min-w-0 flex-col leading-[1.1]">
       <div className="flex items-center gap-2">
         <span
-          className={`block whitespace-nowrap font-display text-[1.55rem] font-black tracking-[-0.02em] uppercase ${
+          className={`block truncate font-display text-[1.55rem] font-black tracking-[-0.02em] uppercase ${
             isDark ? "text-white" : "text-stone-900"
           }`}
         >
           {line1}
         </span>
       </div>
-      <span className="block whitespace-nowrap font-display text-[13px] font-extrabold uppercase tracking-[0.26em] bg-gradient-to-r from-forest-600 via-sage-500 to-forest-800 bg-clip-text text-transparent">
+      <span className="block truncate font-display text-[13px] font-extrabold uppercase tracking-[0.26em] bg-gradient-to-r from-forest-600 via-sage-500 to-forest-800 bg-clip-text text-transparent">
         {line2}
       </span>
     </div>
   );
 
+  // min-w-0 lets the wordmark shrink/truncate on narrow screens instead of
+  // forcing the header to overflow (or collide with the mobile hamburger)
+  // if an admin-entered site name is long — see MobileNav.tsx.
   return (
-    <Link href="/" className={`group inline-flex items-center gap-3 ${className}`}>
+    <Link href="/" className={`group inline-flex min-w-0 items-center gap-3 ${className}`}>
       {emblem}
       {wordmark}
     </Link>
