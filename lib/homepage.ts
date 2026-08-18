@@ -462,8 +462,13 @@ const DEFAULT_HOMEPAGE_CONTENT: HomepageContent = {
   heroHeading: "Arno River Boat Cruise Florence — Experience the Renaissance from the Water",
   heroSubheading:
     "Glide beneath the ancient arches of Ponte Vecchio, marvel at the Vasari Corridor, and enjoy a glass of Tuscan wine aboard an authentic wooden barchetto. Book your Arno boat cruise online with instant confirmation and free cancellation.",
-  heroImage: "/images/gallery/barchetto-cruise.jpg",
-  heroImageAlt: "Traditional wooden barchetto boat cruise on the Arno River in Florence past Ponte Vecchio at sunset",
+  // High-resolution (2400px) sourced image, matching the pattern used by
+  // the other sites' hero defaults — the previous local asset was only
+  // 1376x768 and looked soft once stretched full-bleed across a wide
+  // viewport.
+  heroImage:
+    "https://images.unsplash.com/photo-1759025681939-2e43dbdd2868?q=80&w=2400&auto=format&fit=crop",
+  heroImageAlt: "Wooden boat cruising the Arno River beneath Ponte Vecchio in Florence at golden-hour sunset",
   heroVideo: "",
   heroGallery: DEFAULT_GALLERY,
   heroCtaPrimaryText: "Compare Arno Cruises",
