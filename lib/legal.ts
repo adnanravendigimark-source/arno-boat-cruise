@@ -1,0 +1,134 @@
+import { sql } from "./db";
+import type { ContentBlock } from "./posts";
+import privacyPolicySeed from "@/data/privacy-policy.json";
+
+export interface PrivacyPolicy {
+  title: string;
+  lastUpdated: string;
+  lastUpdatedLabel: string;
+  emptyStateText: string;
+  content: ContentBlock[];
+  noIndex: boolean;
+  noFollow: boolean;
+  canonicalUrl: string;
+  metaTitle: string;
+  metaDescription: string;
+  ogTitle: string;
+  ogDescription: string;
+  ogImage: string;
+}
+
+function parseContent(value: unknown): ContentBlock[] {
+  if (Array.isArray(value)) return value as ContentBlock[];
+  if (typeof value === "string") {
+    try {
+      const parsed = JSON.parse(value);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+  return [];
+}
+
+const DEFAULT_PRIVACY_POLICY: PrivacyPolicy = {
+  title: (privacyPolicySeed as any).title || "Privacy Policy & Terms",
+  lastUpdated: new Date().toISOString().slice(0, 10),
+  lastUpdatedLabel: "Last updated: ",
+  emptyStateText: "This page hasn't been filled in yet.",
+  content: ((privacyPolicySeed as any).sections || []).map((s: any) => ({
+    type: "paragraph" as const,
+    text: `<h3>${s.heading}</h3><p>${s.content}</p>`,
+  })),
+  noIndex: false,
+  noFollow: false,
+  canonicalUrl: "",
+  metaTitle: "Privacy Policy | Arno Boat Cruise Florence",
+  metaDescription: "Privacy Policy for Arno Boat Cruise — how we protect your information when booking Florence river tours.",
+  ogTitle: "",
+  ogDescription: "",
+  ogImage: "",
+};
+
+export async function getPrivacyPolicy(): Promise<PrivacyPolicy> {
+  try {
+    const rows = await sql`SELECT * FROM privacy_policy WHERE id = 1 LIMIT 1`;
+    if (!rows.length) return DEFAULT_PRIVACY_POLICY;
+    const row = rows[0] as any;
+    return {
+      title: row.title || DEFAULT_PRIVACY_POLICY.title,
+      lastUpdated: row.last_updated
+        ? new Date(row.last_updated).toISOString().slice(0, 10)
+        : DEFAULT_PRIVACY_POLICY.lastUpdated,
+      lastUpdatedLabel: row.last_updated_label || DEFAULT_PRIVACY_POLICY.lastUpdatedLabel,
+      emptyStateText: row.empty_state_text || DEFAULT_PRIVACY_POLICY.emptyStateText,
+      content: (() => {
+        const c = parseContent(row.content);
+        return c.length ? c : DEFAULT_PRIVACY_POLICY.content;
+      })(),
+      noIndex: !!row.no_index,
+      noFollow: !!row.no_follow,
+      canonicalUrl: row.canonical_url || "",
+      metaTitle: row.meta_title || DEFAULT_PRIVACY_POLICY.metaTitle,
+      metaDescription: row.meta_description || DEFAULT_PRIVACY_POLICY.metaDescription,
+      ogTitle: row.og_title || "",
+      ogDescription: row.og_description || "",
+      ogImage: row.og_image || "",
+    };
+  } catch {
+    return DEFAULT_PRIVACY_POLICY;
+  }
+}
+
+export async function setPrivacyIndexing(noIndex: boolean, noFollow: boolean): Promise<void> {
+  await sql`
+    INSERT INTO privacy_policy (id, no_index, no_follow)
+    VALUES (1, ${!!noIndex}, ${!!noFollow})
+    ON CONFLICT (id) DO UPDATE SET
+      no_index = EXCLUDED.no_index,
+      no_follow = EXCLUDED.no_follow
+  `;
+}
+
+export async function savePrivacyPolicy(data: {
+  title: string;
+  lastUpdatedLabel: string;
+  emptyStateText: string;
+  content: ContentBlock[];
+  noIndex: boolean;
+  noFollow: boolean;
+  canonicalUrl: string;
+  metaTitle: string;
+  metaDescription: string;
+  ogTitle: string;
+  ogDescription: string;
+  ogImage: string;
+}): Promise<void> {
+  const lastUpdated = new Date().toISOString().slice(0, 10);
+  await sql`
+    INSERT INTO privacy_policy (
+      id, title, last_updated, last_updated_label, empty_state_text, content, no_index, no_follow, canonical_url,
+      meta_title, meta_description, og_title, og_description, og_image
+    )
+    VALUES (
+      1, ${data.title}, ${lastUpdated}, ${data.lastUpdatedLabel || ""}, ${data.emptyStateText || ""},
+      ${JSON.stringify(data.content || [])}::jsonb, ${!!data.noIndex}, ${!!data.noFollow},
+      ${data.canonicalUrl || ""}, ${data.metaTitle || ""}, ${data.metaDescription || ""},
+      ${data.ogTitle || ""}, ${data.ogDescription || ""}, ${data.ogImage || ""}
+    )
+    ON CONFLICT (id) DO UPDATE SET
+      title = EXCLUDED.title,
+      last_updated = EXCLUDED.last_updated,
+      last_updated_label = EXCLUDED.last_updated_label,
+      empty_state_text = EXCLUDED.empty_state_text,
+      content = EXCLUDED.content,
+      no_index = EXCLUDED.no_index,
+      no_follow = EXCLUDED.no_follow,
+      canonical_url = EXCLUDED.canonical_url,
+      meta_title = EXCLUDED.meta_title,
+      meta_description = EXCLUDED.meta_description,
+      og_title = EXCLUDED.og_title,
+      og_description = EXCLUDED.og_description,
+      og_image = EXCLUDED.og_image
+  `;
+}
