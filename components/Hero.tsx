@@ -2,29 +2,14 @@ import Image from "next/image";
 import SafeImage from "./SafeImage";
 import { getHomepageContent } from "@/lib/homepage";
 
-// Modern/premium hero for Arno — full-bleed cinematic background, content
-// anchored to the lower third (editorial poster feel), a slow vertical
-// filmstrip of the gallery along the right edge on large screens, and a
-// glass rating card floating over the image. All copy still comes from the
-// same admin-editable homepage fields — only the composition changed.
 export default async function Hero() {
   const content = await getHomepageContent();
   const gallery = content.heroGallery;
-  const marqueeImages = gallery.length ? [...gallery, ...gallery] : [];
-
   return (
     <section
       id="top"
-      className="relative flex min-h-[100dvh] flex-col justify-end overflow-hidden bg-forest-950 text-white"
+      className="relative flex min-h-[calc(100dvh-4rem)] flex-col justify-center overflow-hidden bg-stone-900 text-white"
     >
-      <style>{`
-        @keyframes arnoHeroMarquee {
-          from { transform: translateY(0); }
-          to { transform: translateY(-50%); }
-        }
-      `}</style>
-
-      {/* Background media */}
       <div className="absolute inset-0">
         {content.heroVideo ? (
           // eslint-disable-next-line jsx-a11y/media-has-caption
@@ -47,88 +32,69 @@ export default async function Hero() {
             className="object-cover object-center"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/55 to-forest-950/10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-forest-950/70 via-transparent to-forest-950/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/80 to-stone-900/40" />
         <div className="absolute inset-0 bg-mosaic mix-blend-soft-light" aria-hidden="true" />
       </div>
 
-      {/* Slow vertical filmstrip — right edge, large screens only */}
-      {marqueeImages.length > 0 && (
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-32 overflow-hidden lg:block xl:w-40">
-          <div
-            className="absolute inset-x-0 top-0 flex flex-col gap-3 px-3"
-            style={{ animation: "arnoHeroMarquee 38s linear infinite" }}
-          >
-            {marqueeImages.map((img, i) => (
-              <div key={img.label + i} className="relative h-40 w-full shrink-0 overflow-hidden rounded-2xl border border-white/10 shadow-xl shadow-black/40">
-                <Image src={img.src} alt={img.alt} fill sizes="160px" className="object-cover" />
-              </div>
-            ))}
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-forest-950 via-transparent to-forest-950" />
-          <div className="absolute inset-0 bg-forest-950/25" />
-        </div>
-      )}
-
-      {/* Content — anchored to the lower third */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-14 pt-40 sm:px-6 sm:pb-16 lg:pr-40 lg:pb-20 xl:pr-52">
-        <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.3em] text-sage-200">
-          <span className="h-px w-9 bg-sage-400/70" aria-hidden="true" />
+      <div className="relative mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+        <div className="inline-flex items-center gap-2 rounded-full border border-sage-400/30 bg-sage-500/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-sage-200 backdrop-blur-md shadow-sm">
+          <span className="h-2 w-2 rounded-full bg-sage-400 animate-pulse" />
           {content.heroBadge}
         </div>
 
-        <h1 className="mt-6 max-w-2xl font-display text-5xl font-bold leading-[1.04] tracking-tight sm:text-6xl lg:text-7xl">
+        <h1 className="mt-5 max-w-3xl font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight drop-shadow-sm">
           {content.heroHeading}
         </h1>
         <div
-          className="rich-content rich-content-invert mt-6 max-w-lg text-base text-stone-300 sm:text-lg leading-relaxed"
+          className="rich-content rich-content-invert mt-4 max-w-2xl text-base text-stone-200 drop-shadow-sm sm:text-lg leading-relaxed"
           dangerouslySetInnerHTML={{ __html: content.heroSubheading }}
         />
 
-        <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+        <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
             href={content.heroCtaPrimaryHref}
-            className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-forest-600 via-sage-600 to-forest-800 px-8 py-4 text-sm font-bold text-white shadow-xl shadow-forest-950/50 transition-all duration-200 hover:scale-[1.02] hover:shadow-forest-600/40"
+            className="group inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-forest-600 via-sage-600 to-forest-800 px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-forest-950/40 transition-all duration-200 hover:scale-[1.02] hover:shadow-forest-600/40"
           >
             {content.heroCtaPrimaryText}
             <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
           </a>
           <a
             href={content.heroCtaSecondaryHref}
-            className="group inline-flex items-center gap-1.5 text-sm font-bold text-white/90 underline decoration-white/30 decoration-2 underline-offset-4 transition hover:text-white hover:decoration-white"
+            className="rounded-xl border border-white/25 bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/20"
           >
             {content.heroCtaSecondaryText}
-            <span className="transition-transform duration-200 group-hover:translate-x-1">↗</span>
           </a>
-        </div>
 
-        {/* Compact photo cluster — replaces the filmstrip below lg */}
-        {gallery.length > 0 && (
-          <div className="mt-10 flex items-center gap-3 lg:hidden">
-            <div className="flex -space-x-3">
-              {gallery.slice(0, 4).map((img, i) => (
-                <div
-                  key={img.label + i}
-                  className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-forest-950 shadow-md sm:h-14 sm:w-14"
-                  style={{ zIndex: 4 - i }}
-                >
-                  <Image src={img.src} alt={img.alt} fill sizes="56px" className="object-cover" />
-                </div>
-              ))}
+          <div className="ml-auto flex items-center gap-3.5 rounded-2xl border border-white/20 bg-white/10 px-5 py-3 backdrop-blur-md shadow-lg shadow-black/10">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sage-400/20 text-xl text-sage-300">
+              ★
             </div>
-            <p className="text-xs font-semibold text-stone-300">Moments along the Arno</p>
+            <div className="text-left leading-tight">
+              <p className="text-base font-bold text-white">{content.ratingValue}</p>
+              <p className="text-xs text-stone-300">{content.ratingCount}</p>
+            </div>
           </div>
-        )}
-      </div>
-
-      {/* Floating glass rating card */}
-      <div className="absolute bottom-8 right-4 z-10 hidden items-center gap-4 rounded-2xl border border-white/15 bg-white/10 px-5 py-4 shadow-2xl shadow-black/30 backdrop-blur-xl sm:flex lg:right-8">
-        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sage-400/20 text-xl text-sage-300">
-          ★
         </div>
-        <div className="text-left leading-tight">
-          <p className="text-base font-bold text-white">{content.ratingValue}</p>
-          <p className="text-xs text-stone-300">{content.ratingCount}</p>
+
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+          {gallery.map((img, i) => (
+            <div
+              key={img.label + i}
+              className="group relative h-24 overflow-hidden rounded-2xl border border-white/15 shadow-xl shadow-black/20 sm:h-28 lg:h-32 transition-transform duration-300 hover:scale-[1.03]"
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="(min-width: 640px) 25vw, 50vw"
+                className="object-cover transition duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <span className="absolute bottom-2.5 left-3 text-xs font-bold text-white drop-shadow">
+                {img.label}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
