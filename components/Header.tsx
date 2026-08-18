@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
+import MobileNav from "./MobileNav";
 import { getSiteChrome } from "@/lib/homepage";
 
 export default async function Header() {
@@ -19,12 +20,15 @@ export default async function Header() {
             </Link>
           ))}
         </nav>
-        <Link
-          href={header.ctaHref}
-          className="rounded-xl bg-gradient-to-r from-forest-600 via-sage-600 to-forest-800 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-forest-600/20 transition-all duration-200 hover:shadow-lg hover:shadow-forest-600/30 hover:scale-[1.02]"
-        >
-          {header.ctaText}
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link
+            href={header.ctaHref}
+            className="rounded-xl bg-gradient-to-r from-forest-600 via-sage-600 to-forest-800 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-forest-600/20 transition-all duration-200 hover:shadow-lg hover:shadow-forest-600/30 hover:scale-[1.02]"
+          >
+            {header.ctaText}
+          </Link>
+          <MobileNav navLinks={header.navLinks} ctaText={header.ctaText} ctaHref={header.ctaHref} />
+        </div>
       </div>
     </header>
   );
