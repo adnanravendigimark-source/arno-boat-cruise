@@ -18,12 +18,24 @@ export default function DeleteButton({
   async function handleDelete() {
     if (!confirm(confirmMessage)) return;
     setLoading(true);
-    const res = await fetch(url, { method: "DELETE" });
-    setLoading(false);
-    if (res.ok) {
-      router.refresh();
-    } else {
-      alert("Delete failed. Please try again.");
+    try {
+      const res = await fetch(url, { method: "DELETE" });
+      if (res.ok) {
+        router.refresh();
+        return;
+      }
+      let message = `Delete failed (${res.status}). Please try again.`;
+      try {
+        const body = await res.json();
+        if (body?.error) message = body.error;
+      } catch {
+        // response wasn't JSON — fall back to the generic message above
+      }
+      alert(message);
+    } catch {
+      alert("Delete failed — couldn't reach the server. Check your connection and try again.");
+    } finally {
+      setLoading(false);
     }
   }
 
