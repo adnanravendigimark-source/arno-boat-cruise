@@ -28,28 +28,28 @@ export default function Logo({
         {/* Sized to the bridge-and-boat artwork's actual ~1.79:1 aspect
             ratio so it fills its box edge-to-edge instead of leaving empty
             pillarbox space on either side. */}
-        <span className="relative block h-16 w-[115px] sm:h-20 sm:w-[143px] transition-transform duration-300 hover:scale-105">
+        <span className="relative block h-20 w-[143px] sm:h-24 sm:w-[172px] transition-transform duration-300 hover:scale-105">
           <Image
             src={customSrc || logoImg}
             alt={alt}
             fill
-            sizes="143px"
+            sizes="172px"
             className="object-contain"
             priority
           />
         </span>
         <div className="text-center leading-tight">
           <span
-            className={`block font-display text-2xl font-black tracking-[-0.02em] uppercase ${
+            className={`block font-display text-3xl font-black tracking-[-0.02em] uppercase ${
               isDark ? "text-white" : "text-stone-900"
             }`}
           >
             {line1}
           </span>
-          <span className="block font-display text-xs font-extrabold uppercase tracking-[0.32em] bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 bg-clip-text text-transparent">
+          <span className="block font-display text-sm font-extrabold uppercase tracking-[0.32em] bg-gradient-to-r from-teal-500 via-blue-600 to-indigo-700 bg-clip-text text-transparent">
             {line2}
           </span>
-          <span className="block text-[10px] font-medium tracking-[0.25em] uppercase text-stone-400 mt-0.5">
+          <span className="block text-xs font-medium tracking-[0.25em] uppercase text-stone-400 mt-0.5">
             Florence, Italy
           </span>
         </div>
@@ -58,13 +58,13 @@ export default function Logo({
   }
 
   const emblem = (
-    <span className="relative block h-9 w-16 sm:h-10 sm:w-[72px] shrink-0 overflow-hidden transition-transform duration-300 group-hover:scale-105">
+    <span className="relative block h-11 w-[79px] sm:h-12 sm:w-[86px] shrink-0 overflow-hidden transition-transform duration-300 group-hover:scale-105">
       <Image
         src={customSrc || logoImg}
         alt={alt}
         fill
         priority
-        sizes="72px"
+        sizes="86px"
         className="object-contain"
       />
     </span>
@@ -72,19 +72,19 @@ export default function Logo({
 
   const wordmark = (
     <div className="flex flex-col leading-[1.1]">
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-2">
         <span
-          className={`block whitespace-nowrap font-display text-[1.22rem] font-black tracking-[-0.02em] uppercase ${
+          className={`block whitespace-nowrap font-display text-[1.55rem] font-black tracking-[-0.02em] uppercase ${
             isDark ? "text-white" : "text-stone-900"
           }`}
         >
           {line1}
         </span>
-        <span className="rounded-full bg-amber-500/15 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-amber-600">
+        <span className="rounded-full bg-teal-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-teal-700">
           Firenze
         </span>
       </div>
-      <span className="block whitespace-nowrap font-display text-[10.5px] font-extrabold uppercase tracking-[0.26em] bg-gradient-to-r from-amber-600 via-orange-600 to-rose-600 bg-clip-text text-transparent">
+      <span className="block whitespace-nowrap font-display text-[13px] font-extrabold uppercase tracking-[0.26em] bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent">
         {line2}
       </span>
     </div>

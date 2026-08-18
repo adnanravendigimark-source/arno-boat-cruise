@@ -22,12 +22,14 @@ body {
   color: #181411;
 }
 
-/* Luxury Florentine Tuscan & Arno River brand-color CSS variables — space-separated RGB triplets */
+/* Arno Navy & Teal brand-color CSS variables — space-separated RGB triplets.
+   Replaces the earlier Tuscan terracotta/amber palette so the site's
+   accent colors match the navy-and-steel-blue boat/bridge logo artwork. */
 :root {
-  --color-canal-primary: 200 90 50;   /* #c85a32 - Warm Florentine Terracotta / Burnt Sienna */
+  --color-canal-primary: 29 78 216;   /* #1d4ed8 - Arno Deep Navy Blue */
   --color-canal-blue: 13 148 136;     /* #0d9488 - Renaissance Arno River Teal / Azure */
   --color-canal-ink: 24 20 17;         /* #181411 - Florence Renaissance Midnight Umber */
-  --color-gold-400: 245 158 11;       /* #f59e0b - Tuscan Amber Gold */
+  --color-gold-400: 45 212 191;       /* #2dd4bf - Arno River Teal Highlight */
 }
 
 /* Shared typography for admin-entered rich text */
@@ -67,13 +69,13 @@ body {
   list-style: decimal;
 }
 .rich-content a {
-  color: #c85a32;
+  color: #1d4ed8;
   text-decoration: underline;
   text-underline-offset: 3px;
   font-weight: 600;
 }
 .rich-content a:hover {
-  color: #9c3f1f;
+  color: #1e40af;
 }
 .rich-content a.text-white,
 .rich-content a[class*="text-white"],
@@ -121,7 +123,7 @@ body {
   text-align: left;
 }
 .rich-content table th {
-  background: rgba(200, 90, 50, 0.08);
+  background: rgba(29, 78, 216, 0.08);
   font-weight: 600;
 }
 
@@ -135,7 +137,7 @@ body {
   color: inherit;
 }
 .rich-content-invert a {
-  color: #fb923c;
+  color: #60a5fa;
 }
 
 /* Tiptap's Placeholder extension */

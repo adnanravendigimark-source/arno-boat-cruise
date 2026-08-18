@@ -259,10 +259,10 @@ export const DEFAULT_FOOTER: FooterContent = {
 };
 
 export const DEFAULT_THEME: ThemeColors = {
-  primary: "#c85a32",   // Tuscan Terracotta / Burnt Sienna
+  primary: "#1d4ed8",   // Arno Deep Navy Blue (replaces the earlier Tuscan terracotta)
   secondary: "#0d9488", // Arno River Teal
   dark: "#181411",      // Florence Midnight Umber
-  accent: "#f59e0b",    // Renaissance Amber Gold
+  accent: "#2dd4bf",    // Arno River Teal Highlight (replaces the earlier amber gold)
 };
 
 export const DEFAULT_GALLERY: GalleryImage[] = [

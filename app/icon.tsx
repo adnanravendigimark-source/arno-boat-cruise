@@ -13,7 +13,7 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #d97706 0%, #c85a32 50%, #9f1239 100%)",
+          background: "linear-gradient(135deg, #0d9488 0%, #1d4ed8 55%, #172554 100%)",
           borderRadius: "12px",
           color: "white",
         }}
@@ -41,12 +41,12 @@ export default function Icon() {
           {/* Pole */}
           <path
             d="M32 10L16 31"
-            stroke="#fef08a"
+            stroke="#5eead4"
             strokeWidth="3"
             strokeLinecap="round"
           />
-          {/* Tuscan Sun */}
-          <circle cx="34" cy="14" r="4" fill="#fef08a" />
+          {/* Sun glint */}
+          <circle cx="34" cy="14" r="4" fill="#5eead4" />
         </svg>
       </div>
     ),
