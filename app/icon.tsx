@@ -1,54 +1,18 @@
 import { ImageResponse } from "next/og";
 
-export const size = { width: 48, height: 48 };
+export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
+
+// Pre-composited from the site's logo emblem (assets/Logo.png) onto an
+// ivory rounded square — see components/Logo.tsx for the source artwork.
+const ICON_DATA_URI =
+  "data:image/png;base64,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";
 
 export default function Icon() {
   return new ImageResponse(
     (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "linear-gradient(135deg, #0d9488 0%, #1d4ed8 55%, #172554 100%)",
-          borderRadius: "12px",
-          color: "white",
-        }}
-      >
-        <svg
-          width="32"
-          height="32"
-          viewBox="0 0 48 48"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* Waves */}
-          <path
-            d="M6 36C12 34 16 38 22 36C28 34 32 38 42 35"
-            stroke="white"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeOpacity="0.9"
-          />
-          {/* Boat Hull */}
-          <path
-            d="M8 29C13 32 35 32 40 29L43 23H5L8 29Z"
-            fill="white"
-          />
-          {/* Pole */}
-          <path
-            d="M32 10L16 31"
-            stroke="#5eead4"
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-          {/* Sun glint */}
-          <circle cx="34" cy="14" r="4" fill="#5eead4" />
-        </svg>
-      </div>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src={ICON_DATA_URI} width={64} height={64} alt="" />
     ),
     { ...size }
   );

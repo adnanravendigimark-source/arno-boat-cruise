@@ -41,7 +41,7 @@ export default function Logo({
         <div className="text-center leading-tight">
           <span
             className={`block font-display text-3xl font-black tracking-[-0.02em] uppercase ${
-              isDark ? "text-white" : "text-stone-900"
+              isDark ? "text-white" : "text-forest-800"
             }`}
           >
             {line1}
