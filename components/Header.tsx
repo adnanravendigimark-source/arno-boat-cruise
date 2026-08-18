@@ -23,7 +23,7 @@ export default async function Header() {
         <div className="flex items-center gap-2">
           <Link
             href={header.ctaHref}
-            className="rounded-xl bg-gradient-to-r from-forest-600 via-sage-600 to-forest-800 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-forest-600/20 transition-all duration-200 hover:shadow-lg hover:shadow-forest-600/30 hover:scale-[1.02]"
+            className="hidden rounded-xl bg-gradient-to-r from-forest-600 via-sage-600 to-forest-800 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-forest-600/20 transition-all duration-200 hover:shadow-lg hover:shadow-forest-600/30 hover:scale-[1.02] md:inline-flex"
           >
             {header.ctaText}
           </Link>
