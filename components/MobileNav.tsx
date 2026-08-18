@@ -9,6 +9,12 @@ import type { NavLink } from "@/lib/homepage";
 // so below the md breakpoint visitors had no way to reach Tours/Blog/
 // About/Contact at all — this is what actually lets them switch pages
 // on mobile.
+//
+// Positioned `absolute top-full` rather than a hardcoded `fixed top-16`
+// so it sits right below the header regardless of the header's actual
+// height (some sites use a fixed h-16, others size the header from
+// padding) — the sticky <header> itself is the nearest positioned
+// ancestor, so this anchors correctly either way.
 export default function MobileNav({
   navLinks,
   ctaText,
@@ -56,11 +62,11 @@ export default function MobileNav({
       {open && (
         <>
           <div
-            className="fixed inset-x-0 bottom-0 top-16 z-40 bg-stone-900/40 backdrop-blur-[1px]"
+            className="absolute inset-x-0 top-full z-40 h-screen bg-stone-900/40 backdrop-blur-[1px]"
             aria-hidden="true"
             onClick={() => setOpen(false)}
           />
-          <div className="fixed inset-x-0 top-16 z-40 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-stone-200 bg-white shadow-lg">
+          <div className="absolute inset-x-0 top-full z-40 max-h-[80vh] overflow-y-auto border-b border-stone-200 bg-white shadow-lg">
             <nav className="flex flex-col px-4 py-3">
               {navLinks.map((link) => (
                 <Link
