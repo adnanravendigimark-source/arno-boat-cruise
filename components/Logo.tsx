@@ -80,9 +80,6 @@ export default function Logo({
         >
           {line1}
         </span>
-        <span className="rounded-full bg-teal-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-teal-700">
-          Firenze
-        </span>
       </div>
       <span className="block whitespace-nowrap font-display text-[13px] font-extrabold uppercase tracking-[0.26em] bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent">
         {line2}
