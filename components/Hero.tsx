@@ -27,10 +27,11 @@ export default async function Hero() {
     { 1: "lg:grid-cols-1", 2: "lg:grid-cols-2", 3: "lg:grid-cols-3" }[previewTours.length] || "lg:grid-cols-4";
 
   return (
-    <section id="top" className="relative overflow-hidden bg-stone-950 text-white">
+    <section id="top" className="relative overflow-hidden bg-forest-950 text-white">
       <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
-        {/* Left — copy panel */}
-        <div className="relative z-10 flex flex-col justify-center bg-stone-950 px-4 py-10 sm:px-6 sm:py-12 lg:px-10 lg:py-10 xl:px-14">
+        {/* Left — copy panel (dark forest green, matching the logo/brand
+            color — not a neutral black) */}
+        <div className="relative z-10 flex flex-col justify-center bg-forest-950 px-4 py-10 sm:px-6 sm:py-12 lg:px-10 lg:py-10 xl:px-14">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 px-3.5 py-1.5 text-[10.5px] font-bold uppercase leading-snug tracking-[0.16em] text-sage-200">
             <span aria-hidden="true">🍃</span>
             {content.heroBadge}
@@ -125,15 +126,15 @@ export default async function Hero() {
           {/* Just enough darkening behind the floating card for legibility */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/35 to-transparent" />
           {/* Soft blend into the left panel */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-28 bg-gradient-to-r from-stone-950 to-transparent lg:block xl:w-36" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-28 bg-gradient-to-r from-forest-950 to-transparent lg:block xl:w-36" />
 
           {/* Floating rating card — kept clear of the popular-cruises card
               that overlaps up from below (see the -mt on that card) */}
-          <div className="absolute bottom-10 right-4 z-10 flex items-center gap-3 rounded-2xl border border-white/15 bg-stone-950/65 px-4 py-3 shadow-xl backdrop-blur-md sm:bottom-11 sm:right-6">
+          <div className="absolute bottom-10 right-4 z-10 flex items-center gap-3 rounded-2xl border border-white/15 bg-forest-950/70 px-4 py-3 shadow-xl backdrop-blur-md sm:bottom-11 sm:right-6">
             {avatarSrcs.length > 0 && (
               <div className="flex -space-x-2.5">
                 {avatarSrcs.map((src, i) => (
-                  <span key={src + i} className="relative h-8 w-8 overflow-hidden rounded-full border-2 border-stone-950">
+                  <span key={src + i} className="relative h-8 w-8 overflow-hidden rounded-full border-2 border-forest-950">
                     <SafeImage src={src} alt="" fill sizes="32px" className="object-cover" />
                   </span>
                 ))}
@@ -176,9 +177,9 @@ export default async function Hero() {
                   href={tour.href}
                   target="_blank"
                   rel="noopener nofollow sponsored"
-                  className="group overflow-hidden rounded-2xl border border-stone-200/70 transition hover:border-forest-400/40 hover:shadow-lg"
+                  className="group overflow-hidden rounded-2xl border border-stone-200/70 shadow-sm transition hover:border-forest-400/40 hover:shadow-lg"
                 >
-                  <div className="relative aspect-[16/11] overflow-hidden bg-stone-100">
+                  <div className="relative aspect-[3/2] overflow-hidden bg-stone-100">
                     <SafeImage
                       src={tour.image}
                       alt={tour.imageAlt}
@@ -187,14 +188,14 @@ export default async function Hero() {
                       className="object-cover transition duration-500 group-hover:scale-105"
                     />
                     {tour.ribbon && (
-                      <span className="absolute left-2 top-2 rounded-md bg-stone-950/80 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+                      <span className="absolute left-2 top-2 rounded-md bg-white/95 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-stone-900 shadow-sm backdrop-blur-sm">
                         {tour.ribbon}
                       </span>
                     )}
                   </div>
-                  <div className="p-3">
-                    <p className="line-clamp-1 text-sm font-bold text-stone-900">{tour.title}</p>
-                    <div className="mt-1.5 flex items-center justify-between gap-2">
+                  <div className="p-4">
+                    <p className="line-clamp-1 text-[15px] font-bold text-stone-900">{tour.title}</p>
+                    <div className="mt-2 flex items-center justify-between gap-2">
                       <div className="flex min-w-0 items-center gap-2.5">
                         {tour.duration && (
                           <span className="flex min-w-0 items-center gap-1 text-[11px] font-medium text-stone-500">
