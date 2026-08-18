@@ -85,7 +85,6 @@ export default function LoginForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full rounded-lg border border-stone-300 px-3 py-2.5 text-sm focus:border-canal-blue focus:outline-none focus:ring-1 focus:ring-canal-blue"
-          placeholder="admin@gmail.com"
           autoFocus
         />
       </div>

@@ -40,9 +40,8 @@ export default function Logo({
         </span>
         <div className="text-center leading-tight">
           <span
-            className={`block font-display text-3xl font-black tracking-[-0.02em] uppercase ${
-              isDark ? "text-white" : "text-forest-800"
-            }`}
+            className={`block font-display text-3xl font-black tracking-[-0.02em] uppercase ${isDark ? "text-white" : "text-forest-800"
+              }`}
           >
             {line1}
           </span>
@@ -74,9 +73,8 @@ export default function Logo({
     <div className="flex min-w-0 flex-col leading-[1.1]">
       <div className="flex items-center gap-2">
         <span
-          className={`block truncate font-display text-[1.55rem] font-black tracking-[-0.02em] uppercase ${
-            isDark ? "text-white" : "text-stone-900"
-          }`}
+          className={`block truncate font-display text-[1.55rem] font-black tracking-[-0.02em] uppercase ${isDark ? "text-white" : "text-stone-900"
+            }`}
         >
           {line1}
         </span>
