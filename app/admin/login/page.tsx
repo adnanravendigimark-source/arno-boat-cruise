@@ -15,7 +15,7 @@ export default function AdminLoginPage() {
             Arno Boat Cruise Florence
           </p>
         </div>
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-sage-300">
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
           Content Admin
         </p>
         <div className="mt-6">
