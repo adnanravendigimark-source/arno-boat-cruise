@@ -442,8 +442,11 @@ async function seedFaqs() {
 
 async function seedPrivacyPolicy() {
   const rows = await sql`SELECT content FROM privacy_policy WHERE id = 1`;
-  const hasContent = rows.length > 0 && Array.isArray(rows[0].content) && rows[0].content.length > 0;
-  if (hasContent) {
+  const hasUsableContent =
+    rows.length > 0 &&
+    Array.isArray(rows[0].content) &&
+    rows[0].content.some((b) => b && typeof b.text === "string" && b.text.trim());
+  if (hasUsableContent) {
     console.log("privacy_policy: already has content — skipping seed.");
     return;
   }
@@ -454,13 +457,21 @@ async function seedPrivacyPolicy() {
     await sql`INSERT INTO privacy_policy (id, last_updated) VALUES (1, ${today}) ON CONFLICT (id) DO NOTHING`;
     return;
   }
-  // Row may already exist from an earlier deploy with content stuck at '[]'
-  // (e.g. setup-db.mjs ran before data/privacy-policy.json existed) - heal
-  // that by filling in title + content on conflict, without touching any
-  // other admin-edited fields (SEO, last_updated_label, etc.).
+  // The admin page/editor stores content as ContentBlock[] ({type, text}),
+  // not raw {heading, content} pairs - convert data/privacy-policy.json's
+  // sections into that shape before inserting. This conversion was missing
+  // before, which is why previously-seeded rows had non-empty but useless
+  // content: every block's `.text` was undefined, so the page rendered blank.
+  const contentBlocks = (p.sections || []).map((s) => ({
+    type: "paragraph",
+    text: `<h3>${s.heading}</h3><p>${s.content}</p>`,
+  }));
+  // Row may already exist from an earlier deploy with empty or wrongly
+  // shaped content - heal that by filling in title + content on conflict,
+  // without touching any other admin-edited fields (SEO, last_updated_label, etc.).
   await sql`
     INSERT INTO privacy_policy (id, title, last_updated, content)
-    VALUES (1, ${p.title || "Privacy Policy"}, ${today}, ${JSON.stringify(p.sections || p.content || [])}::jsonb)
+    VALUES (1, ${p.title || "Privacy Policy"}, ${today}, ${JSON.stringify(contentBlocks)}::jsonb)
     ON CONFLICT (id) DO UPDATE SET
       title = EXCLUDED.title,
       content = EXCLUDED.content
