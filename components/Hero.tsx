@@ -28,6 +28,7 @@ export default async function Hero() {
             alt={content.heroImageAlt}
             fill
             priority
+            quality={68}
             sizes="100vw"
             className="object-cover object-center"
           />
