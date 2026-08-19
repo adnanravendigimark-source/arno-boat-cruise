@@ -302,6 +302,9 @@ async function addBlogCmsColumns() {
   await sql`ALTER TABLE posts ADD COLUMN IF NOT EXISTS cta_body TEXT NOT NULL DEFAULT ''`;
   await sql`ALTER TABLE posts ADD COLUMN IF NOT EXISTS cta_button_text TEXT NOT NULL DEFAULT ''`;
   await sql`ALTER TABLE posts ADD COLUMN IF NOT EXISTS cta_button_href TEXT NOT NULL DEFAULT ''`;
+  // Byline shown on the article page ("By <name>") — added for the new
+  // blog design's author meta row. Format convention: "Name / Role".
+  await sql`ALTER TABLE posts ADD COLUMN IF NOT EXISTS author TEXT NOT NULL DEFAULT ''`;
   await sql`
     CREATE TABLE IF NOT EXISTS post_redirects (
       old_slug TEXT PRIMARY KEY,

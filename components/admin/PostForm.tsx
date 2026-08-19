@@ -295,6 +295,15 @@ export default function PostForm({
                 </Field>
               </div>
 
+              <Field label="Author" hint='Shown as the byline on the article ("By <name>"). Format: "Name / Role", e.g. "Giulia Bianchi / Florence Local Guide".'>
+                <input
+                  value={post.author}
+                  onChange={(e) => update("author", e.target.value)}
+                  className={inputClass}
+                  placeholder="e.g. Giulia Bianchi / Florence Local Guide"
+                />
+              </Field>
+
               <ImageUploadField label="Hero image" value={post.image} onChange={(url) => update("image", url)} aspectRatio={21 / 9} />
               <Field label="Image alt text" hint="Describe the photo for screen readers and Google Images.">
                 <input required value={post.imageAlt} onChange={(e) => update("imageAlt", e.target.value)} className={inputClass} />

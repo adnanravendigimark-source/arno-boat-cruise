@@ -25,6 +25,7 @@ export interface Post {
   readTime: string;
   date: string;
   updatedAt: string;
+  author: string;
   image: string;
   imageAlt: string;
   recommendedTourId: string;
@@ -95,6 +96,7 @@ function rowToPost(row: any): Post {
     readTime: row.read_time,
     date: row.date,
     updatedAt: row.updated_at ? new Date(row.updated_at).toISOString().slice(0, 10) : row.date,
+    author: row.author || "",
     image: row.image,
     imageAlt: row.image_alt,
     recommendedTourId: row.recommended_tour_id || "",
@@ -120,6 +122,7 @@ function seedPosts(): Post[] {
     ...p,
     content: parseContent(p.content),
     updatedAt: p.updatedAt || p.date,
+    author: p.author || "",
     ctaHeading: p.ctaHeading || DEFAULT_CTA_HEADING,
     ctaBody: p.ctaBody || DEFAULT_CTA_BODY,
     ctaButtonText: p.ctaButtonText || DEFAULT_CTA_BUTTON_TEXT,
@@ -170,13 +173,13 @@ export async function savePosts(posts: Post[]): Promise<void> {
     await sql`
       INSERT INTO posts (
         slug, title, meta_title, meta_description, category, excerpt,
-        quick_answer, read_time, date, updated_at, image, image_alt,
+        quick_answer, read_time, date, updated_at, author, image, image_alt,
         recommended_tour_id, recommended_tour_after_block, content, sort_order,
         cta_heading, cta_body, cta_button_text, cta_button_href, focus_keyword,
         no_index, no_follow, canonical_url, og_title, og_description, og_image
       ) VALUES (
         ${p.slug}, ${p.title}, ${p.metaTitle}, ${p.metaDescription}, ${p.category},
-        ${p.excerpt}, ${p.quickAnswer}, ${p.readTime}, ${p.date}, ${p.updatedAt || p.date}, ${p.image}, ${p.imageAlt},
+        ${p.excerpt}, ${p.quickAnswer}, ${p.readTime}, ${p.date}, ${p.updatedAt || p.date}, ${p.author || ""}, ${p.image}, ${p.imageAlt},
         ${p.recommendedTourId || ""}, ${p.recommendedTourAfterBlock ?? null},
         ${JSON.stringify(p.content || "")}::jsonb, ${i},
         ${p.ctaHeading || ""}, ${p.ctaBody || ""}, ${p.ctaButtonText || ""}, ${p.ctaButtonHref || ""}, ${p.focusKeyword || ""},
@@ -192,6 +195,7 @@ export async function savePosts(posts: Post[]): Promise<void> {
         read_time = EXCLUDED.read_time,
         date = EXCLUDED.date,
         updated_at = EXCLUDED.updated_at,
+        author = EXCLUDED.author,
         image = EXCLUDED.image,
         image_alt = EXCLUDED.image_alt,
         recommended_tour_id = EXCLUDED.recommended_tour_id,

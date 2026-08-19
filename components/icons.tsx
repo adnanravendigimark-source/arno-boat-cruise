@@ -110,6 +110,25 @@ export function CanalHouseIcon({ className = "h-6 w-6" }: IconProps) {
   );
 }
 
+export function CalendarIcon({ className = "h-6 w-6" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth={1.6}>
+      <rect x="3.5" y="5.5" width="17" height="15" rx="2" />
+      <path d="M3.5 10h17" strokeLinecap="round" />
+      <path d="M8 3.5v4M16 3.5v4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function SearchIcon({ className = "h-6 w-6" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth={1.8}>
+      <circle cx="10.5" cy="10.5" r="6.5" />
+      <path d="M19.5 19.5 15.2 15.2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function WaveBoatIcon({ className = "h-6 w-6" }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth={1.6}>
