@@ -441,9 +441,10 @@ async function seedFaqs() {
 }
 
 async function seedPrivacyPolicy() {
-  const [{ count }] = await sql`SELECT COUNT(*)::int AS count FROM privacy_policy`;
-  if (count > 0) {
-    console.log("privacy_policy: already configured — skipping seed.");
+  const rows = await sql`SELECT content FROM privacy_policy WHERE id = 1`;
+  const hasContent = rows.length > 0 && Array.isArray(rows[0].content) && rows[0].content.length > 0;
+  if (hasContent) {
+    console.log("privacy_policy: already has content — skipping seed.");
     return;
   }
   const p = readJsonFile("privacy-policy.json");
@@ -453,10 +454,16 @@ async function seedPrivacyPolicy() {
     await sql`INSERT INTO privacy_policy (id, last_updated) VALUES (1, ${today}) ON CONFLICT (id) DO NOTHING`;
     return;
   }
+  // Row may already exist from an earlier deploy with content stuck at '[]'
+  // (e.g. setup-db.mjs ran before data/privacy-policy.json existed) - heal
+  // that by filling in title + content on conflict, without touching any
+  // other admin-edited fields (SEO, last_updated_label, etc.).
   await sql`
     INSERT INTO privacy_policy (id, title, last_updated, content)
     VALUES (1, ${p.title || "Privacy Policy"}, ${today}, ${JSON.stringify(p.sections || p.content || [])}::jsonb)
-    ON CONFLICT (id) DO NOTHING
+    ON CONFLICT (id) DO UPDATE SET
+      title = EXCLUDED.title,
+      content = EXCLUDED.content
   `;
   console.log("privacy_policy: seeded from data/privacy-policy.json.");
 }
