@@ -84,7 +84,14 @@ function parseContent(value: unknown): string {
   return "";
 }
 
+function toDateString(value: unknown, fallback: string): string {
+  if (value instanceof Date) return value.toISOString().slice(0, 10);
+  if (typeof value === "string" && value) return value.slice(0, 10);
+  return fallback;
+}
+
 function rowToPost(row: any): Post {
+  const dateStr = toDateString(row.date, "2026-03-20");
   return {
     slug: row.slug,
     title: row.title,
@@ -94,8 +101,8 @@ function rowToPost(row: any): Post {
     excerpt: row.excerpt,
     quickAnswer: row.quick_answer,
     readTime: row.read_time,
-    date: row.date,
-    updatedAt: row.updated_at ? new Date(row.updated_at).toISOString().slice(0, 10) : row.date,
+    date: dateStr,
+    updatedAt: row.updated_at ? toDateString(row.updated_at, dateStr) : dateStr,
     author: row.author || "",
     image: row.image,
     imageAlt: row.image_alt,
