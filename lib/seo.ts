@@ -22,6 +22,13 @@ export function resolveCanonical(path: string, override?: string | null): string
   return `${SITE_URL}${cleanPath}`;
 }
 
+export function resolveAbsoluteUrl(url?: string | null): string {
+  const trimmed = (url || "").trim();
+  if (!trimmed) return "";
+  if (/^https?:\/\//i.test(trimmed)) return trimmed;
+  return `${SITE_URL}${trimmed.startsWith("/") ? "" : "/"}${trimmed}`;
+}
+
 export interface OgFields {
   ogTitle?: string;
   ogDescription?: string;
