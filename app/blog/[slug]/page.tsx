@@ -15,7 +15,14 @@ import { resolveRobots, resolveCanonical, resolveOg, buildArticleJsonLd } from "
 import { SITE_URL } from "@/lib/site";
 import { extractTableOfContents } from "@/lib/tableOfContents";
 
-export const dynamic = "force-dynamic";
+
+// Empty list = nothing prebuilt at deploy time; each page is rendered on its
+// first request, then served from cache until an admin save purges it.
+// Without this export Next 14 renders the route dynamically (a Neon query on
+// every hit).
+export async function generateStaticParams() {
+  return [];
+}
 
 export async function generateMetadata({
   params,

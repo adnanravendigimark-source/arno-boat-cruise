@@ -7,7 +7,6 @@ import { getContactPage } from "@/lib/contact";
 import { getIconComponent } from "@/lib/iconMap";
 import { resolveRobots, resolveCanonical, resolveOg } from "@/lib/seo";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const contact = await getContactPage();

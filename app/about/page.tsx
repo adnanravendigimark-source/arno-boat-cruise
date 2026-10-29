@@ -6,7 +6,6 @@ import SafeImage from "@/components/SafeImage";
 import { getAboutPage } from "@/lib/about";
 import { resolveRobots, resolveCanonical, resolveOg } from "@/lib/seo";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const about = await getAboutPage();

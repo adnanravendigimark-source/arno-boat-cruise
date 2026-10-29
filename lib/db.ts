@@ -6,9 +6,10 @@ if (!process.env.DATABASE_URL) {
   );
 }
 
-export const sql = neon(process.env.DATABASE_URL || "postgres://unset", {
-  fetchOptions: { cache: "no-store" },
-});
+// No `cache: "no-store"`: it forced every public page to render dynamically
+// (a Neon wake-up per visit). Admin pages and /api routes are force-dynamic,
+// so their queries stay uncached.
+export const sql = neon(process.env.DATABASE_URL || "postgres://unset");
 
 export const DB_ERROR_MESSAGE =
   "Couldn't save — the database couldn't be reached. Check that DATABASE_URL is set correctly (and that your Neon project is active), then try again.";

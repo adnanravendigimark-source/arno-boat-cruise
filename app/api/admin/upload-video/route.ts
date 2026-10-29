@@ -1,3 +1,4 @@
+import { withSiteRevalidate } from "@/lib/revalidateSite";
 import { NextResponse } from "next/server";
 import { put } from "@vercel/blob";
 import { recordMediaUpload } from "@/lib/media";
@@ -13,7 +14,7 @@ export const dynamic = "force-dynamic";
 // app/api/admin/upload/route.ts (images) rather than widening that one,
 // since every other upload field in the admin expects an image and the
 // size/type limits here are deliberately different.
-export async function POST(req: Request) {
+async function POSTHandler(req: Request) {
   if (!process.env.BLOB_READ_WRITE_TOKEN) {
     return NextResponse.json(
       {
@@ -65,3 +66,5 @@ export async function POST(req: Request) {
     );
   }
 }
+
+export const POST = withSiteRevalidate(POSTHandler);

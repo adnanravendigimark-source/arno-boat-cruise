@@ -14,7 +14,6 @@ import { getTours } from "@/lib/data";
 import { getHomepageContent } from "@/lib/homepage";
 import { resolveRobots, resolveCanonical, resolveOg, resolveAbsoluteUrl, stripHtml } from "@/lib/seo";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const homepage = await getHomepageContent();
